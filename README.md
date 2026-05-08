@@ -23,7 +23,10 @@ push your completed copy to your assignment repository.
 2. Wait for the codespace to finish starting. On first launch it will
    resolve the environment with [pixi](https://pixi.sh); expect this to
    take a few minutes.
-3. JupyterLab will open automatically in a new browser tab.
+3. JupyterLab will open automatically in a new browser tab (via the
+   forwarded port 8888). **Use that tab** — do not click the GitHub
+   "Open in JupyterLab" button; it uses a different Jupyter server
+   that cannot see this repository's R kernel.
 4. Open `assignment5.ipynb` and, when prompted, choose the **R** kernel.
 
 Everything you need (R, tidyverse, palmerpenguins, tidymodels, scikit-learn,
@@ -43,7 +46,9 @@ Then launch JupyterLab as you normally would from your `data730` environment.
 ### Troubleshooting
 
 - **JupyterLab didn't open automatically.** Open a terminal in the codespace
-  and run `pixi run lab`. The forwarded port (8888) should then open.
+  and run `pixi run lab`. The forwarded port (8888) should then open. If you
+  already have a tab from GitHub's "Open in JupyterLab" button, close it —
+  it's a different server without the R kernel.
 - **The R kernel is not listed.** Run `pixi run jupyter kernelspec list` in
   a codespace terminal to confirm `ir` is registered. If it is missing, run
   `pixi run Rscript -e 'IRkernel::installspec(user = FALSE)'` and reload.
